@@ -550,7 +550,7 @@
                         "pid": 100, 
                         "kvmInSE": false, 
                         "cxx_class": "Process", 
-                        "executable": "/home/t1nf/co_proj/benchmark/quick_small", 
+                        "executable": "/home/t1nf/co_proj/benchmark/multiply", 
                         "drivers": [], 
                         "system": "system", 
                         "gid": 100, 
@@ -567,7 +567,7 @@
                         "path": "system.cpu.workload", 
                         "name": "workload", 
                         "cmd": [
-                            "/home/t1nf/co_proj/benchmark/quick_small"
+                            "/home/t1nf/co_proj/benchmark/multiply"
                         ], 
                         "errout": "cerr", 
                         "useArchPT": false, 
@@ -771,9 +771,9 @@
             "replacement_policy": {
                 "eventq_index": 0, 
                 "path": "system.l3.replacement_policy", 
-                "type": "LFURP", 
+                "type": "LRURP", 
                 "name": "replacement_policy", 
-                "cxx_class": "LFURP"
+                "cxx_class": "LRURP"
             }, 
             "cpu_side": {
                 "peer": "system.tol3bus.master[0]", 
@@ -811,7 +811,7 @@
                 "clk_domain": "system.cpu_clk_domain", 
                 "power_model": [], 
                 "sequential_access": false, 
-                "assoc": 1, 
+                "assoc": 4, 
                 "warmup_percentage": 0, 
                 "cxx_class": "BaseSetAssoc", 
                 "p_state_clk_gate_max": 1000000000000, 
@@ -835,7 +835,7 @@
             "name": "l3", 
             "p_state_clk_gate_bins": 20, 
             "sequential_access": false, 
-            "assoc": 1
+            "assoc": 4
         }, 
         "cpu_voltage_domain": {
             "name": "cpu_voltage_domain", 
