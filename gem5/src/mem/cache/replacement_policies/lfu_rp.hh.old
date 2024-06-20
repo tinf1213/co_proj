@@ -55,18 +55,10 @@ class LFURP : public BaseReplacementPolicy
         /**
          * Default constructor. Invalidate data.
          */
-	int getScore() const {
-     	   // Compute score using a combination of access count and recency
-           // Adding decay to access count
-           return refCount / 2 + lastTouchTick / 1000;
-    	}
         LFUReplData() : refCount(0) {}
     };
 
   public:
-    
-	
-
     /** Convenience typedef. */
     typedef LFURPParams Params;
 

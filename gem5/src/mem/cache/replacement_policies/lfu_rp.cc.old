@@ -16,7 +16,8 @@ const
 {
     // Reset reference count
     std::static_pointer_cast<LFUReplData>(replacement_data)->refCount = 0;
-    std::static_pointer_cast<LFUReplData>(replacement_data)->lastTouchTick = Tick(0);
+    std::static_pointer_cast<LFUReplData>(
+        replacement_data)->lastTouchTick = Tick(0);
 }
 
 void
@@ -46,13 +47,24 @@ LFURP::getVictim(const ReplacementCandidates& candidates) const
 
     // Visit all candidates to find victim
     ReplaceableEntry* victim = candidates[0];
-    int minScore = std::static_pointer_cast<LFUReplData>(victim->replacementData)->getScore();
     for (const auto& candidate : candidates) {
         // Update victim entry if necessary
-    	int score = std::static_pointer_cast<LFUReplData>(candidate->replacementData)->getScore();
-        if (score < minScore) {
+        if (std::static_pointer_cast<LFUReplData>(
+                    candidate->replacementData)->refCount <
+                std::static_pointer_cast<LFUReplData>(
+                    victim->replacementData)->refCount) {
             victim = candidate;
-            minScore = score;
+        }
+        else if(std::static_pointer_cast<LFUReplData>(
+                    candidate->replacementData)->refCount ==
+                std::static_pointer_cast<LFUReplData>(
+                    victim->replacementData)->refCount){
+            if(std::static_pointer_cast<LFUReplData>(
+                    candidate->replacementData)->lastTouchTick <
+                std::static_pointer_cast<LFUReplData>(
+                    victim->replacementData)->lastTouchTick){
+                victim = candidate;
+            }
         }
     }
 
