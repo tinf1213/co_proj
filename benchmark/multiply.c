@@ -1,5 +1,5 @@
 
-#define SIZE 300
+#define SIZE 30
 int main()
 {
  	int size = SIZE;

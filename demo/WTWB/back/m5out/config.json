@@ -559,7 +559,7 @@
                         "maxStackSize": 67108864, 
                         "ppid": 0, 
                         "type": "Process", 
-                        "cwd": "/home/t1nf/co_proj/demo/WTWB/back", 
+                        "cwd": "/home/t1nf/co_proj/demo/WTWB/through", 
                         "pgid": 100, 
                         "simpoint": 0, 
                         "euid": 100, 
